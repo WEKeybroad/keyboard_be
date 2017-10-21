@@ -17,12 +17,23 @@ def key() :
         rds = redis.StrictRedis(host=os.getenv('REDIS_HOST'),port=6662,db=3)
         rds1 = redis.StrictRedis(host=os.getenv('REDIS_HOST'),port=6662,db=4)
     else :
-        print type(systems)
-        print systems
+       # print type(systems)
+       # print systems
         rds = redis.StrictRedis(host=os.getenv('REDIS_HOST'),port=6662,db=1)
         rds1 = redis.StrictRedis(host=os.getenv('REDIS_HOST'),port=6662,db=2)
 
     keys = request.get_json().get('keyword')
+
+    if keys == u'复制' :
+        keys = u'拷贝'
+
+    if keys == u'截屏' or keys == u'截图' :
+        if systems == 'Mac' :
+            keys = u'快照'
+    if keys == u'快照' or keys == u'截屏' :
+        if systems == 'Win' :
+            keys = u'截图'
+
     kind = request.get_json().get('kind')
     res = rds.hgetall(keys)
     if len(res) == 0 :
