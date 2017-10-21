@@ -1,8 +1,9 @@
-*.txt
+data.txt
+data1.txt
 venv 
 __pycache__
 *.pyc 
-*.env
+key.env
 *.swp
 *.swp 
 *.swo
