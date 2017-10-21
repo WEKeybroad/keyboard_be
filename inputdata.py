@@ -3,9 +3,10 @@
 
 import redis
 import re
+import os
 
-rds = redis.StrictRedis(host='localhost',port=6666,db=1)
-rds1 = redis.StrictRedis(host='localhost',port=6666,db=3)
+rds = redis.StrictRedis(host=os.getenv('REDIS_HOST'),port=6661,db=1)
+rds1 = redis.StrictRedis(host=os.getenv('REDIS_HOST'),port=6661,db=3)
 f = open("data.txt")
 
 while True :
@@ -14,11 +15,8 @@ while True :
     except :
         break
     res = s.split('|')
-    print res
+    print (res)
     res.pop()
-    for item in res :
-        print item ,
-    print
     #print len(res)
   # res.pop()
     dic={"group":res[1],"belong":res[0],"name":res[3],"desc":res[4]}

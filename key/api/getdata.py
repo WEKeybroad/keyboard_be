@@ -4,8 +4,10 @@
 from flask import jsonify, request
 from . import  api
 import redis
-rds = redis.StrictRedis(host='localhost',port=6666,db=1)
-rds1 = redis.StrictRedis(host='localhost',port=6666,db=3)
+import os
+
+rds = redis.StrictRedis(host=os.getenv('REDIS_HOST'),port=6661,db=1)
+rds1 = redis.StrictRedis(host=os.getenv('REDIS_HOST'),port=6661,db=3)
 
 @api.route('/key/',methods=['POST'])
 def key() :
