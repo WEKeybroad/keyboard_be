@@ -10,6 +10,6 @@ key:
 
 redis1:
     image: redis
-    command: redis-server --port 6661
+    command: redis-server --port 6662
     ports:
-        - "6661:6661"
+        - "6662:6662"

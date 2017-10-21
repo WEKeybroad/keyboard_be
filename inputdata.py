@@ -5,9 +5,9 @@ import redis
 import re
 import os
 
-rds = redis.StrictRedis(host=os.getenv('REDIS_HOST'),port=6661,db=1)
-rds1 = redis.StrictRedis(host=os.getenv('REDIS_HOST'),port=6661,db=3)
-f = open("data.txt")
+rds = redis.StrictRedis(host=os.getenv('REDIS_HOST'),port=6662,db=1)
+rds1 = redis.StrictRedis(host=os.getenv('REDIS_HOST'),port=6662,db=2)
+f = open("data1.txt")
 
 while True :
     try :
